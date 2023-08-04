@@ -1,0 +1,40 @@
+$patting: 1em;
+$icon-size: 50px;
+
+*{
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+}
+
+html{
+    font-family: Roboto, sans-serif;
+}
+
+html[data-theme="day"] .weather,
+.weather {
+    background: linear-gradient(360deg,#3594bf 0%, rgba(255, 255, 255, 0)100%) #53a6cb;
+}
+html[data-theme="night"] .weather,
+.weather {
+    background: linear-gradient(360deg,#55707e 0%, rgba(255, 255, 255, 0)100%) #06537c;
+}
+.weather__inner{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: $patting;
+}
+.current {
+    text-align: center;
+    margin-bottom: $patting *2;
+
+    &__city{
+        font-size: 3em;
+    }
+    &__description {
+        font-size: 1.5em;
+    }
+    &__temperture{
+        font-size: 4em ;
+    }
+}
