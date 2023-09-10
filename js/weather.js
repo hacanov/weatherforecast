@@ -49,6 +49,7 @@ function render(data){
     renderCurrentTemperature(data);
     renderCity(data);
     renderCurrentDescription(data);
+    renderForecast(data);
 }
 
 function renderCity(data){
@@ -69,3 +70,39 @@ function renderCurrentDescription(data){
     description.innerHTML = tmp;
     }
 
+    function renderForecast (data){
+        let forecastDataContainer = document.querySelector('.forecast');
+        let forecasts = '';
+
+        for (let i = 0; i < 6; i++ ){
+            let item = data.list[1];
+
+            let icon = item.weather[0].icon;
+            let temp = getTemperature(item.main.temp);
+            let hours = ( i==0 ? 'Сейчас' : getHoursString(item.dt*1000));
+
+            let tmplate = ` <div class="forecast__item">
+                    <div class="forecast__time">${hours}</div>
+                    <div class="forecast__imcon icon__${icon}"></div>
+                    <div class="forecast__temperature">${temp}</div>
+                </div>`;
+                forecasts += template;
+
+        }
+        forecastDataContainer.innerHTML = forecasts;
+    
+    }
+
+function renderDetails(data){
+    let item = data.list[0];
+    let pressureValue = convertPressure(item.main.pressure);
+    let pressure = getVaueWithunit(pressureValue,pressureUnit);
+    let humidity = getVaueWithunit(item.main.humidity,humidityUnit);
+    let feels_like = getTemperature(item.main.feels_like);
+    let wind = getVaueWithunit(item.wind.speed, windUnit);
+}
+
+function renderDetailsItem(className, value){
+    let container = document.querySelector(`.${className}`) .querySelector('.detalis__vaule');
+    container.innerHTML = value;
+}
