@@ -50,6 +50,8 @@ function render(data){
     renderCity(data);
     renderCurrentDescription(data);
     renderForecast(data);
+    renderDetails (data);
+    renderDayNight(data);
 }
 
 function renderCity(data){
@@ -100,9 +102,53 @@ function renderDetails(data){
     let humidity = getVaueWithunit(item.main.humidity,humidityUnit);
     let feels_like = getTemperature(item.main.feels_like);
     let wind = getVaueWithunit(item.wind.speed, windUnit);
+    renderDetailsItem('feelslike', feels_like);
+    renderDetailsItem('pressure', pressure);
+    renderDetailsItem('humidity', humidity);
+    renderDetailsItem('wind', wind);
 }
 
 function renderDetailsItem(className, value){
     let container = document.querySelector(`.${className}`) .querySelector('.detalis__vaule');
     container.innerHTML = value;
 }
+
+function isDay(data){
+    let sunrise = data.city.sunrise * 1000;
+    let sunset = data.city.sunset * 1000;
+    
+    let now = Date.now();
+    return (now > sunrise && now < sunset);
+
+}
+
+function renderDayNight(data){
+    let attrName = isDay(data) ? 'day' : 'night';
+    transition();
+    document.documentElement.setAttribute('data-theme', attrName);
+
+}
+
+function periodicTasks() {
+    setInterval(start, 6000000);
+    setTimeout( function(){
+        renderDayNight(currentData);
+    }, 6000000);
+}
+
+function start(){
+    getData().then(data =>{
+        currentData = data;
+        render(data);
+        periodicTasks();
+    })
+}
+
+function transition(){
+    document.documentElement.classList.add('transition');
+    setTimeout(function () {
+        document.documentElement.classList.remove('transition');
+    }, 4000)
+}
+
+start();
