@@ -1,79 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Погода</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styels/main.css">
-    <link rel="stylesheet" href="styels/manner.scss">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather app</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="weather">
-        <div class="weather__inner">
-            <div class="current">
-                <div class="current__city">Москва</div>
-                <div class="current__description">ясно</div>
-                <div class="current__temperature">25</div>
-            </div>
-
-            <div class="forecast">
-                <div class="forecast__item">
-                    <div class="forecast__time icon__01d">Сейчас</div>
-                    <div class="forecast__imcon"></div>
-                    <div class="forecast__temperature">15</div>
-                </div>
-            </div>
-            <div class="forecast__item">
-                <div class="forecast__time">21</div>
-                <div class="forecast__imcon icon__01d"></div>
-                <div class="forecast__temperature">15</div>
-            </div>
-            <div class="forecast__item">
-                <div class="forecast__time">21</div>
-                <div class="forecast__imcon icon__04d"></div>
-                <div class="forecast__temperature">15</div>
-            </div>
-            <div class="forecast__item">
-                <div class="forecast__time">21</div>
-                <div class="forecast__imcon icon__04d"></div>
-                <div class="forecast__temperature">15</div>
-            </div>
-            <div class="forecast__item">
-                <div class="forecast__time">21</div>
-                <div class="forecast__imcon icon__02d"></div>
-                <div class="forecast__temperature">15</div>
-            </div>
-
-            <div class="forecast__item">
-                <div class="forecast__time">21</div>
-                <div class="forecast__imcon icon__02d"></div>
-                <div class="forecast__temperature">15</div>
-            </div>
-
-            <div class="details">
-                <div class="detalis__row">
-                    <div class="detalis__item">
-                        <div class="detalis__mame">ощущается как</div>
-                        <div class="detalis__value">22</div>
-                    </div>
-                    <div class="detalis__item">
-                        <div class="detalis__mame">давление</div>
-                        <div class="detalis__value">766 мм. рт. ст.</div>
-                    </div>
-                    <div class="detalis__item">
-                        <div class="detalis__mame">влажность</div>
-                        <div class="detalis__value">50%</div>
-                    </div>
-                    <div class="detalis__item">
-                        <div class="detalis__mame">ветер</div>
-                        <div class="detalis__value">5 м/с</div>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <img src="" alt="" srcset="" id="weather-icon">
+        <div id="location">Unable to Fetch Weather</div>
+        <div class="desc">No Information Available.</div>
+        <div class="weather">
+            <div class="c">Error</div>
+            <div class="circle"></div>
+            <div class="f">Error</div>
         </div>
-    </div>
+        <div class="info">
+            <h4>Sunrise: <span class="sunrise">No Information Available</span></h4>
+            <h4>Sunset: <span class="sunset">No Information Available</span></h4>
+        </div>
 
-    <script src="js/weather.js"></script>    
+    </div>
+    <script src="scripts.js"></script>
 </body>
+
 </html>
